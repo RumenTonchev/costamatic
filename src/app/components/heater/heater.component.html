@@ -1,0 +1,10 @@
+<div class="row">
+  <div class="col-half">
+    Heater On <span class="status-dot"
+                     [class.status-dot-green]="onState | async"></span>
+  </div>
+  <div class="col-half">
+    Is Hot <span class="status-dot"
+                  [class.status-dot-green]="hotState | async"></span>
+  </div>
+</div>

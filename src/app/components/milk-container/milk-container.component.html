@@ -1,0 +1,9 @@
+<div class="row py-15">
+  <div class="col-half">
+    Milk left: <strong>{{ quantity | async }}</strong>
+  </div>
+  <div class="col-half">
+    Pouring Milk <span class="status-dot"
+                       [class.status-dot-green]="isPouring | async"></span>
+  </div>
+</div>

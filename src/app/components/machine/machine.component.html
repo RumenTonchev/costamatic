@@ -1,0 +1,6 @@
+<div class="row">
+  <div class="col-half text-center py-15"
+       *ngFor="let beverage of beverages | async;">
+    <app-beverage-button [beverage]="beverage"></app-beverage-button>
+  </div>
+</div>

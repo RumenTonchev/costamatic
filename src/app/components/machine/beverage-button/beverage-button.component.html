@@ -1,0 +1,11 @@
+<button class="display-button"
+        [disabled]="isDisabled"
+        [class.active]="isActive"
+        (click)="createBeverageEvent()">
+      <span class="text-bigger">
+      <fa-icon [icon]="beverage.ico"></fa-icon>
+      </span>
+  <span class="">
+    {{ beverage.name }}
+  </span>
+</button>
