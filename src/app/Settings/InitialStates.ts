@@ -88,7 +88,7 @@ export const InitialHeater: HeaterInterface = {
 export const InitialMachine: MachineInterface = {
   id: 'COFFEE-69',
   state: 'off',
-  displayText: 'Chose A Drink',
+  displayText: 'Choose A Drink',
   currentBeverage: null,
   currentStep: null,
   errorMsg: null,

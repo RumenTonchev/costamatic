@@ -28,7 +28,7 @@ export const machineReducer = createReducer(
     } else if (state.currentBeverage) {
       return {
         ...state,
-        displayText: 'Drink Is Ready/Chose A Drink',
+        displayText: 'Drink Is Ready/Choose A Drink',
         state: 'stand by',
         currentBeverage: null,
         currentStep: null,
@@ -45,14 +45,14 @@ export const machineReducer = createReducer(
   on(turnOff, (state) => {
     return {
       ...state,
-      displayText: 'Chose A Drink',
+      displayText: 'Choose A Drink',
       state: 'off'
     }
   }),
   on(setError, (state, {content}) => {
     return {
       ...state,
-      displayText: 'Chose A Drink',
+      displayText: 'Choose A Drink',
       state: 'off',
       errorMsg: content ? content : null
     }
