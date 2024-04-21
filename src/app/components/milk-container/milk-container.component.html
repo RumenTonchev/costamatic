@@ -1,9 +1,15 @@
-<div class="row py-15">
-  <div class="col-half">
-    Milk left: <strong>{{ quantity | async }}</strong>
+<div class="row pt-15">
+  <div class="col-5 text-center">
+    MILK&nbsp;<span class="status-dot"
+                    [class.status-dot-green]="dispenseQuantity > 0"></span>
   </div>
-  <div class="col-half">
-    Pouring Milk <span class="status-dot"
-                       [class.status-dot-green]="isPouring | async"></span>
+</div>
+<div class="row pt-10">
+  <div class="col-5">
+    <app-container-preview
+      [max]="milkContainerSettings.capacity"
+      [quantity]="dispenseQuantity"
+      [transitionSpeed]="dispenseTime"
+      [imageClass]="'preview-milk'"></app-container-preview>
   </div>
 </div>

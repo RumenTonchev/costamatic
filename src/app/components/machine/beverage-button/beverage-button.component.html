@@ -1,6 +1,7 @@
 <button class="display-button"
         [disabled]="isDisabled"
         [class.active]="isActive"
+        [class.display-button-na]="notAvailable"
         (click)="createBeverageEvent()">
       <span class="text-bigger">
       <fa-icon [icon]="beverage.ico"></fa-icon>

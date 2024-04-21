@@ -1,0 +1,62 @@
+<main>
+  <div class="header">
+    <h2>
+      COSTAMATIC
+    </h2>
+  </div>
+  <div class="px-15">
+    <div class="row">
+      <div class="col-3">
+        <div class="row">
+          <div class="col-3">
+            <app-heater></app-heater>
+            <div class="row pt-15">
+              <div class="col-5">
+                <div class="beverage-preview">
+                  <div class="cup" (click)="cupClick()">
+                    <div class="cup-milk"
+                         [ngStyle]="{
+                    'height.%': milkQuantity * 20,
+                    'transitionDuration.s': milkTime
+                  }"></div>
+                    <div class="cup-coffee"
+                         [ngStyle]="{
+                    'height.%': coffeeQuantity * 30,
+                    'transitionDuration.s': coffeeTime
+                  }"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="row">
+              <div class="col-half">
+                <app-milk-container></app-milk-container>
+              </div>
+              <div class="col-half">
+                <app-beans-container></app-beans-container>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-5">
+                <app-grinder></app-grinder>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-2">
+        <app-machine></app-machine>
+      </div>
+    </div>
+  </div>
+</main>
+<div class="pages-controls">
+  <div class="row">
+    <div class="col-5">
+      <a [routerLink]="['admin']"
+         class="btn w-100">Admin</a>
+    </div>
+  </div>
+</div>

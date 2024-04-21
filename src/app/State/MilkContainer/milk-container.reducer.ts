@@ -2,6 +2,7 @@ import {MilkContainerInterface} from "../../Interfaces/milk-container-interface"
 import {createReducer, on} from "@ngrx/store";
 import {fillMilk, milkPoured, pourMilk} from "./milk-container.actions";
 import {InitialMilkContainer} from "../../Settings/InitialStates";
+import {MilkContainerSettings} from "../../Settings/MilkContainerSettings";
 
 export const milkContainerReducer = createReducer(
   InitialMilkContainer,
@@ -18,6 +19,9 @@ export const milkContainerReducer = createReducer(
     };
   }),
   on(fillMilk, (state) => {
-    return InitialMilkContainer;
+    return {
+      ...state,
+      quantity: MilkContainerSettings.capacity
+    };
   }),
 )

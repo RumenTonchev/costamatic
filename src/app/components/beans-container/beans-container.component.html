@@ -1,14 +1,15 @@
-<div class="row py-15">
-  <div class="col-half">
-    Beans left: <strong>{{ beansQuantity | async }}</strong>
+<div class="row pt-15">
+  <div class="col-5 text-center">
+    COFFEE&nbsp;<span class="status-dot"
+                      [class.status-dot-green]="dispenseQuantity > 0"></span>
   </div>
-  <div class="col-half">
-    Dispensing Beans <span class="status-dot"
-                           [class.status-dot-green]="isDispensing | async"></span>
-  </div>
-  <div class="col-half"></div>
-  <div class="col-half">
-    Pouring Coffee <span class="status-dot"
-                           [class.status-dot-green]="isPouring | async"></span>
+</div>
+<div class="row pt-10">
+  <div class="col-5">
+    <app-container-preview
+      [max]="containerSettings.capacity"
+      [quantity]="dispenseQuantity"
+      [transitionSpeed]="dispenseTime"
+      [imageClass]="'preview-beans'"></app-container-preview>
   </div>
 </div>

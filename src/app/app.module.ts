@@ -25,6 +25,15 @@ import {GrinderEffects} from "./State/Grinder/grinder.effects";
 import {milkContainerReducer} from "./State/MilkContainer/milk-container.reducer";
 import {MilkContainerEffects} from "./State/MilkContainer/milk-container.effects";
 import {beveragesReducer} from "./State/Beverages/beverages.reducer";
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { getDatabase, provideDatabase } from '@angular/fire/database';
+import { getFunctions, provideFunctions } from '@angular/fire/functions';
+import { getStorage, provideStorage } from '@angular/fire/storage';
+import { MachinePageComponent } from './pages/machine-page/machine-page.component';
+import { AdminPageComponent } from './pages/admin-page/admin-page.component';
+import { ContainerPreviewPositionPipe } from './pipes/container-preview-position.pipe';
+import { ContainerPreviewComponent } from './components/container-preview/container-preview.component';
 
 
 @NgModule({
@@ -35,7 +44,11 @@ import {beveragesReducer} from "./State/Beverages/beverages.reducer";
     HeaterComponent,
     BeansContainerComponent,
     MilkContainerComponent,
-    BeverageButtonComponent
+    BeverageButtonComponent,
+    MachinePageComponent,
+    AdminPageComponent,
+    ContainerPreviewPositionPipe,
+    ContainerPreviewComponent
   ],
   imports: [
     BrowserModule,
@@ -56,6 +69,11 @@ import {beveragesReducer} from "./State/Beverages/beverages.reducer";
       GrinderEffects,
       MilkContainerEffects,
     ]),
+    provideFirebaseApp(() => initializeApp({"projectId":"costamatic-admin","appId":"1:620471898474:web:6e68fda21cb2cd76889513","storageBucket":"costamatic-admin.appspot.com","apiKey":"AIzaSyAffDQQdXS-VG0qPdaDQbDSepOzHIwEIuI","authDomain":"costamatic-admin.firebaseapp.com","messagingSenderId":"620471898474"})),
+    provideFirestore(() => getFirestore()),
+    provideDatabase(() => getDatabase()),
+    provideFunctions(() => getFunctions()),
+    provideStorage(() => getStorage()),
   ],
   providers: [],
   bootstrap: [AppComponent]

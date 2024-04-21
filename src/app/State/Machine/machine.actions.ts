@@ -17,3 +17,7 @@ export const turnOn = createAction(
 export const turnOff = createAction(
   '[ANY] Turn Off'
 );
+export const setError = createAction(
+  '[ANY] Set Error',
+  props<{ content: string }>()
+);

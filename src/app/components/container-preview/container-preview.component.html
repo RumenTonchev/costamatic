@@ -1,0 +1,20 @@
+<div class="container-preview">
+  <div class="preview-scale">
+    <div>FULL</div>
+    <div>&nbsp;</div>
+    <div>&nbsp;</div>
+    <div>&nbsp;</div>
+    <div>&nbsp;</div>
+    <div>HALF</div>
+    <div>&nbsp;</div>
+    <div>&nbsp;</div>
+    <div>&nbsp;</div>
+    <div>&nbsp;</div>
+    <div>EMPTY</div>
+  </div>
+  <div [ngClass]="imageClass"
+       [ngStyle]="{
+       'top': (quantity | containerPreviewPosition:max),
+       'transitionDuration.s': transitionSpeed
+       }"></div>
+</div>

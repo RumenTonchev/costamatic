@@ -1,9 +1,8 @@
 import {Component} from '@angular/core';
-import {BeverageInterface} from "../../Interfaces/beverage-interface";
-import {selectBeansQuantity} from "../../State/BeansContainer/beans-container.selectors";
 import {Store} from "@ngrx/store";
 import {AppState} from "../../State/app.state";
 import {selectAllBeverages} from "../../State/Beverages/beverages.selectors";
+import {selectDisplayText, selectErrorMsg} from "../../State/Machine/machine.selectors";
 
 @Component({
   selector: 'app-machine',
@@ -12,8 +11,9 @@ import {selectAllBeverages} from "../../State/Beverages/beverages.selectors";
 })
 export class MachineComponent {
 
-  beansQuantity = this.store.select(selectBeansQuantity);
   beverages = this.store.select(selectAllBeverages);
+  displayText$ = this.store.select(selectDisplayText);
+  errorMsg$ = this.store.select(selectErrorMsg);
 
   constructor(
     private store: Store<AppState>

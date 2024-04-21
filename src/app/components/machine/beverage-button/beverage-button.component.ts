@@ -19,6 +19,7 @@ export class BeverageButtonComponent implements OnInit, OnDestroy {
   subs: Subscription = new Subscription();
   isDisabled: boolean = false;
   isActive: boolean = false;
+  notAvailable: boolean = false;
 
   constructor(
     private store: Store<AppState>
@@ -45,8 +46,10 @@ export class BeverageButtonComponent implements OnInit, OnDestroy {
         } else {
           this.isDisabled = false;
           this.isActive = false;
+          this.notAvailable = false;
           Object.keys(this.beverage.ingredients).forEach(key => {
             this.isDisabled = this.isDisabled || quantities[key] < this.beverage.ingredients[key];
+            this.notAvailable = this.notAvailable || quantities[key] < this.beverage.ingredients[key];
           });
         }
       })

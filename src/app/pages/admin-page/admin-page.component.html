@@ -1,0 +1,53 @@
+<main class="px-15">
+  <div class="row">
+    <div class="col-5">
+      <h2>COSTAMATIC admin page</h2>
+    </div>
+  </div>
+  <div class="row py-15">
+    <div class="col-3">
+      <button class="btn"
+              (click)="fillCoffeeContainer()">Fill Beans Container
+      </button>&nbsp;&nbsp;&nbsp;
+      <button class="btn"
+              (click)="fillMilkContainer()">Fill Milk Container
+      </button>
+    </div>
+    <div class="col-2 text-right">
+      <button class="btn"
+              [disabled]="loading"
+              (click)="getAllMessages()">Reload
+      </button>
+    </div>
+  </div>
+  <div class="row py-15">
+    <div class="col-5">
+      <table class="admin-table">
+        <thead>
+        <tr>
+          <th>Machine Id</th>
+          <th>Type</th>
+          <th>Message</th>
+          <th>Datetime</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let message of messages">
+          <td>{{ message.machineId }}</td>
+          <td>{{ message.type }}</td>
+          <td>{{ message.message }}</td>
+          <td>{{ message.datetime | date:'dd.MM.yyyy HH:mm:ss' }}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>
+<div class="pages-controls">
+  <div class="row">
+    <div class="col-5 mb-10">
+      <a [routerLink]="['']"
+         class="btn w-100">Machine</a>
+    </div>
+  </div>
+</div>

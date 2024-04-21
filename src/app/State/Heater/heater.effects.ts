@@ -4,7 +4,7 @@ import {Actions, createEffect, ofType} from "@ngrx/effects";
 import {Store} from "@ngrx/store";
 import {AppState} from "../app.state";
 import {heaterOff, heaterOn, isCold, isHot} from "./heater.actions";
-import {delay, delayWhen, from, interval, of, tap, withLatestFrom} from "rxjs";
+import {delay, delayWhen, from, interval, map, of, tap, withLatestFrom} from "rxjs";
 import {selectHeaterHot, selectHeaterOn} from "./heater.selectors";
 import {nextStep, turnOff} from "../Machine/machine.actions";
 import {selectMachineState} from "../Machine/machine.selectors";
@@ -24,7 +24,7 @@ export class HeaterEffects {
     withLatestFrom(this.store.select(selectHeaterHot)),
     delayWhen(([data, isHot]) => isHot ? interval(0) : interval(this.heaterSettings.heatingTime)),
     withLatestFrom(this.store.select(state => state.machine)),
-    tap(([data, storeData]) => {
+    map(([data, storeData]) => {
       this.store.dispatch(isHot());
       this.store.dispatch(nextStep({content: storeData.currentBeverage}));
     })
@@ -36,7 +36,7 @@ export class HeaterEffects {
       return interval(this.heaterSettings.coolingTime);
     }),
     withLatestFrom(this.store.select(selectHeaterOn)),
-    tap(([data, storeData]) => {
+    map(([data, storeData]) => {
       if (!storeData) {
         this.store.dispatch(isCold());
       }
@@ -45,7 +45,7 @@ export class HeaterEffects {
 
   isCold$ = createEffect(() => this.actions$.pipe(
     ofType(isCold),
-    tap(() => {
+    map(() => {
       this.store.dispatch(turnOff());
     })
   ), {dispatch: false})

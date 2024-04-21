@@ -1,5 +1,5 @@
 import {createReducer, on} from "@ngrx/store";
-import {makeBeverage, nextStep, turnOff, turnOn} from "./machine.actions";
+import {makeBeverage, nextStep, setError, turnOff, turnOn} from "./machine.actions";
 import {InitialMachine} from "../../Settings/InitialStates";
 
 export const machineReducer = createReducer(
@@ -22,14 +22,16 @@ export const machineReducer = createReducer(
         currentBeverage: {
           ...state.currentBeverage,
           recipe: recipeSteps
-        }
+        },
+        currentStep: state.currentBeverage.recipe[0]
       }
     } else if (state.currentBeverage) {
       return {
         ...state,
-        displayText: 'Drink Is Ready',
+        displayText: 'Drink Is Ready/Chose A Drink',
         state: 'stand by',
-        currentBeverage: null
+        currentBeverage: null,
+        currentStep: null,
       }
     }
     return state;
@@ -43,8 +45,16 @@ export const machineReducer = createReducer(
   on(turnOff, (state) => {
     return {
       ...state,
-      displayText: '',
+      displayText: 'Chose A Drink',
       state: 'off'
+    }
+  }),
+  on(setError, (state, {content}) => {
+    return {
+      ...state,
+      displayText: 'Chose A Drink',
+      state: 'off',
+      errorMsg: content ? content : null
     }
   }),
 )

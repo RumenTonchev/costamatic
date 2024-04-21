@@ -1,17 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-/*! HTML5 Boilerplate v9.0.1 | MIT License | https://html5boilerplate.com/ */
+@import url('./assets/fonts/stylesheet.css');
 
-/* main.css 3.0.0 | MIT License | https://github.com/h5bp/main.css#readme */
+/*! HTML5 Boilerplate v9.0.1 | MIT License | https://html5boilerplate.com/ */ /* main.css 3.0.0 | MIT License | https://github.com/h5bp/main.css#readme */
 /*
- * What follows is the result of much research on cross-browser styling.
- * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
- * Kroc Camen, and the H5BP dev community and team.
- */
-
+* What follows is the result of much research on cross-browser styling.
+* Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+* Kroc Camen, and the H5BP dev community and team.
+*/
 /* ==========================================================================
-   Base styles: opinionated defaults
-   ========================================================================== */
-
+  Base styles: opinionated defaults
+  ========================================================================== */
 html {
   color: #222;
   font-size: 1em;
@@ -258,24 +256,39 @@ html, body {
   font-style: normal;
   font-size: 16px;
   height: 100%;
-  color: #672137;
+  color: #2f2f2f;
   margin: 0;
+  position: relative;
+}
+
+body {
+  padding-top: 15px;
 }
 
 main {
   max-width: 1000px;
   margin: 0 auto;
-  /*min-height: 100%;*/
-  background: #d6dfe8;
-  padding: 30px 15px 15px 15px;
+  padding-bottom: 15px;
   display: flex;
   flex-direction: column;
+  position: relative;
+  background: linear-gradient(
+    45deg,
+    #888 5%,
+    #eee 10%,
+    #bbb 30%,
+    #ccc 50%,
+    #bbb 70%,
+    #eee 80%,
+    #888 95%
+  );
 }
 
 .header {
   text-align: center;
-
-  background: rgba(0, 0, 0, 0.3);
+  color: #672137;
+  background: rgba(0, 0, 0, 0.5);
+  border-bottom: 2px solid #282828;
 }
 
 .header > h2 {
@@ -349,6 +362,24 @@ main {
   padding-bottom: 15px;
 }
 
+.py-10 {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.pt-15 {
+  padding-top: 15px;
+}
+
+.pt-10 {
+  padding-top: 10px;
+}
+
+.px-15 {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
 .text-big {
   font-size: 2em;
 }
@@ -378,6 +409,7 @@ main {
   border: 1px solid #222222;
   vertical-align: middle;
   background: rgba(145, 39, 71, 0.8);
+  margin-bottom: 3px;
 }
 
 .status-dot:after {
@@ -414,3 +446,227 @@ main {
     box-shadow: 0 0 1rem 0.4rem #279135CC;
   }
 }
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ebecf1;
+}
+
+.admin-table th,
+.admin-table td {
+  border: 1px solid #912747;
+  padding: 5px 10px;
+}
+
+.btn {
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  padding: 5px 10px;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: .25rem;
+  transition: all .15s ease-in-out;
+  border: 1px solid #912747;
+  color: #912747;
+  background: #EBECF1;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.btn.active,
+.btn:hover,
+.btn:focus {
+  border: 1px solid #912747;
+  background: #912747;
+  color: #EBECF1;
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.pages-controls {
+  position: absolute;
+  top: 15px;
+  right: 30px;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.mb-10 {
+  margin-bottom: 10px;
+}
+
+.display-font {
+  font-family: 'The Display St';
+  font-weight: normal;
+  font-style: normal;
+}
+
+.display-font.display-error {
+  color: #b32a53;
+  font-weight: 700;
+}
+
+.flex-half {
+  flex: 1 0 50%;
+  flex-basis: 50%;
+  max-width: 50%;
+}
+
+.display-el {
+  border-radius: 3px;
+  background: #282828;
+  background: radial-gradient(ellipse at center, #282828 50%, #225722 100%);
+  background-size: 100% 4px;
+  background-repeat: repeat-y;
+  animation: display-anim 10s linear infinite;
+}
+
+@keyframes display-anim {
+  0% {
+    background-position: 0% 100%;
+  }
+  50% {
+    background-position: 0% 90%;
+  }
+  100% {
+    background-position: 0% 60%;
+  }
+}
+
+.display-text {
+  color: #66ff66;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  font-size: 1.2rem;
+  flex: 1 0 100%;
+  flex-basis: 100%;
+  max-width: 100%;
+}
+
+.container-preview {
+  background: rgba(142, 110, 111, 0.2);
+  height: 320px;
+  overflow: hidden;
+  position: relative;
+  border: 2px solid #282828;
+  border-radius: 3px 3px 0 0;
+  width: 50px;
+  margin: 0 auto;
+}
+
+.heater-preview:after,
+.container-preview:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.03);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
+}
+
+.container-preview > .preview-milk,
+.container-preview > .preview-beans {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 90%;
+  background-size: cover;
+  transition: all 0.5s ease-in-out;
+}
+
+.container-preview > .preview-beans {
+  background-image: url("./assets/img/beens.jpg");
+}
+
+.container-preview > .preview-milk {
+  background-image: url("./assets/img/milk.png");
+}
+
+.container-preview > .preview-scale {
+  position: absolute;
+  top: 5%;
+  left: 0;
+  right: 0;
+  height: 96%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-decoration: underline;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.heater-preview {
+  position: relative;
+  height: 50px;
+  width: 100%;
+  background: #282828;
+  box-shadow: inset #EF822F 0 0 0 0;
+  border: 2px solid #282828;
+  border-radius: 3px;
+}
+
+.heater-preview.is-heating {
+  background: #ef4213;
+  box-shadow: inset #EF822F 0 0 15px 7px
+}
+
+.heater-preview.is-hot {
+  background: #ef4213;
+}
+
+.beverage-preview {
+  width: 100%;
+  height: 300px;
+  background: rgba(0, 0, 0, 0.5);
+  margin: 0 auto;
+  padding-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  border: 2px solid #282828;
+  border-radius: 3px;
+}
+
+.beverage-preview > .cup {
+  height: 240px;
+  width: 180px;
+  position: relative;
+  margin: 0 auto;
+  clip-path: polygon(0% 0%, 100% 0%, 85% 100%, 15% 100%);
+  background: #c1a3ac;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  cursor: pointer;
+}
+
+.beverage-preview > .cup > .cup-milk {
+  width: 100%;
+  height: 10%;
+  transition: all 1s linear;
+  background: #fdfff5;
+}
+
+.beverage-preview > .cup > .cup-coffee {
+  width: 100%;
+  height: 10%;
+  transition: all 1s linear;
+  background: #6F4E37;
+}
+

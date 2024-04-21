@@ -1,7 +1,7 @@
-import {BeansContainerInterface} from "../../Interfaces/beans-container-interface";
 import {createReducer, on} from "@ngrx/store";
 import {beansDispensed, coffeePoured, dispenseBeans, fillBeans, pourCoffee} from "./beans-container.actions";
 import {InitialBeansContainer} from "../../Settings/InitialStates";
+import {BeansContainerSettings} from "../../Settings/BeansContainerSettings";
 
 export const beansContainerReducer = createReducer(
   InitialBeansContainer,
@@ -19,7 +19,10 @@ export const beansContainerReducer = createReducer(
     };
   }),
   on(fillBeans, (state) => {
-    return InitialBeansContainer;
+    return {
+      ...state,
+      quantity: BeansContainerSettings.capacity
+    };
   }),
   on(pourCoffee, (state, {content}) => {
     return {

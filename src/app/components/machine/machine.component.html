@@ -1,6 +1,19 @@
-<div class="row">
-  <div class="col-half text-center py-15"
-       *ngFor="let beverage of beverages | async;">
-    <app-beverage-button [beverage]="beverage"></app-beverage-button>
+<div class="row py-15">
+  <div class="col-5">
+    <div class="machine-controls display-el py-10">
+      @if (!(errorMsg$ | async)) {
+        <div class="display-text display-font">
+          {{ displayText$ | async }}
+        </div>
+      } @else {
+        <div class="display-text display-font display-error">
+          {{ errorMsg$ | async }}
+        </div>
+      }
+      <div class="flex-half text-center py-10"
+           *ngFor="let beverage of beverages | async;">
+        <app-beverage-button [beverage]="beverage"></app-beverage-button>
+      </div>
+    </div>
   </div>
 </div>

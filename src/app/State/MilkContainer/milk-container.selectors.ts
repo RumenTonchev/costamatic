@@ -1,5 +1,4 @@
 import {AppState} from "../app.state";
-import {state} from "@angular/animations";
 import {createSelector} from "@ngrx/store";
 import {MilkContainerInterface} from "../../Interfaces/milk-container-interface";
 

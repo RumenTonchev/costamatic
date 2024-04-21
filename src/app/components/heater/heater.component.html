@@ -1,10 +1,21 @@
-<div class="row">
-  <div class="col-half">
-    Heater On <span class="status-dot"
-                     [class.status-dot-green]="onState | async"></span>
-  </div>
-  <div class="col-half">
-    Is Hot <span class="status-dot"
-                  [class.status-dot-green]="hotState | async"></span>
+<div class="row pt-15">
+  <div class="col-5">
+    HEATER:&nbsp;&nbsp;&nbsp;
+    ON&nbsp;<span class="status-dot"
+                  [class.status-dot-green]="onState | async"></span>
+    &nbsp;&nbsp;&nbsp;
+    HOT:&nbsp;<span class="status-dot"
+                    [class.status-dot-green]="hotState | async"></span>
   </div>
 </div>
+<div class="row pt-10">
+  <div class="col-5">
+    <div class="heater-preview"
+         [class.is-hot]="onState | async"
+         [class.is-heating]="onState | async"
+         [ngStyle]="{
+    'transition': 'box-shadow linear 1s, background ' + (transitionTime + 2) + 's linear'
+    }"></div>
+  </div>
+</div>
+

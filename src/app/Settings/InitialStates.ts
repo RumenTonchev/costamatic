@@ -14,6 +14,11 @@ export const InitialBeansContainer: BeansContainerInterface = {
   quantity: 10,
 }
 
+export const InitialMilkContainer: MilkContainerInterface = {
+  isPouring: false,
+  quantity: 5,
+}
+
 export const InitialBeverages: BeverageInterface[] = [
   {
     name: 'coffee',
@@ -83,12 +88,9 @@ export const InitialHeater: HeaterInterface = {
 export const InitialMachine: MachineInterface = {
   id: 'COFFEE-69',
   state: 'off',
-  displayText: '',
-  currentBeverage: null
+  displayText: 'Chose A Drink',
+  currentBeverage: null,
+  currentStep: null,
+  errorMsg: null,
 };
-
-export const InitialMilkContainer: MilkContainerInterface = {
-  isPouring: false,
-  quantity: 5,
-}
 
