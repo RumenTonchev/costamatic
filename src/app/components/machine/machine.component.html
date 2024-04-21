@@ -10,7 +10,7 @@
           {{ errorMsg$ | async }}
         </div>
       }
-      <div class="flex-half text-center py-10"
+      <div class="flex-half flex-md-third text-center py-10"
            *ngFor="let beverage of beverages | async;">
         <app-beverage-button [beverage]="beverage"></app-beverage-button>
       </div>
