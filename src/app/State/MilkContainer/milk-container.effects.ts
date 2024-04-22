@@ -4,11 +4,10 @@ import {Actions, createEffect, ofType} from "@ngrx/effects";
 import {Store} from "@ngrx/store";
 import {AppState} from "../app.state";
 import {fillMilk, milkPoured, pourMilk} from "./milk-container.actions";
-import {delayWhen, interval, map, tap, withLatestFrom} from "rxjs";
+import {delayWhen, interval, map, withLatestFrom} from "rxjs";
 import {nextStep, setError} from "../Machine/machine.actions";
 import {CloudService} from "../../services/cloud.service";
 import {selectMilkContainerQuantity} from "./milk-container.selectors";
-import {fillBeans} from "../BeansContainer/beans-container.actions";
 
 @Injectable()
 export class MilkContainerEffects {
@@ -31,8 +30,6 @@ export class MilkContainerEffects {
       this.store.dispatch(milkPoured(data));
       this.store.dispatch(nextStep({content: storeData.currentBeverage}));
     })
-    // map(([data, storeData]) => {
-    // })
   ), {dispatch: false})
 
   milkPoured$ = createEffect(() => this.actions$.pipe(

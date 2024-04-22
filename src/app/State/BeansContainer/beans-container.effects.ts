@@ -4,7 +4,7 @@ import {Store} from "@ngrx/store";
 import {AppState} from "../app.state";
 import {BeansContainerSettings} from "../../Settings/BeansContainerSettings";
 import {beansDispensed, coffeePoured, dispenseBeans, fillBeans, pourCoffee} from "./beans-container.actions";
-import {delayWhen, interval, map, tap, withLatestFrom} from "rxjs";
+import {delayWhen, interval, map, withLatestFrom} from "rxjs";
 import {nextStep, setError} from "../Machine/machine.actions";
 import {selectBeansQuantity} from "./beans-container.selectors";
 import {CloudService} from "../../services/cloud.service";

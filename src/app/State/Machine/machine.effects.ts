@@ -2,12 +2,12 @@ import {Injectable} from "@angular/core";
 import {Actions, createEffect, ofType} from "@ngrx/effects";
 import {Store} from "@ngrx/store";
 import {AppState} from "../app.state";
-import {makeBeverage, nextStep, setError, turnOff, turnOn} from "./machine.actions";
-import {map, tap, withLatestFrom} from "rxjs";
+import {makeBeverage, nextStep, setError, turnOn} from "./machine.actions";
+import {map, withLatestFrom} from "rxjs";
 import {heaterOff, heaterOn} from "../Heater/heater.actions";
 import {selectBeansQuantity} from "../BeansContainer/beans-container.selectors";
 import {selectMilkContainerQuantity} from "../MilkContainer/milk-container.selectors";
-import {selectAllBeverages, selectBeverages} from "../Beverages/beverages.selectors";
+import {selectAllBeverages} from "../Beverages/beverages.selectors";
 
 @Injectable()
 export class MachineEffects {

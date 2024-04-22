@@ -1,15 +1,4 @@
-import {createAction, props} from "@ngrx/store";
-import {BeverageInterface} from "../../Interfaces/beverage-interface";
-
-
-// export const makeBeverage = createAction(
-//   '[MACHINE] Make Beverage',
-//   props<{ content: BeverageInterface }>()
-// );
-//
-// export const nextStep = createAction(
-//   '[ANY] Next Step'
-// );
+import {createAction} from "@ngrx/store";
 
 export const heaterOn = createAction(
   '[HEATER] Heater On',

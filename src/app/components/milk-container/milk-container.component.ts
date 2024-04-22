@@ -3,7 +3,7 @@ import {Store} from "@ngrx/store";
 import {AppState} from "../../State/app.state";
 import {selectMilkContainerQuantity, selectPouringMilkState} from "../../State/MilkContainer/milk-container.selectors";
 import {MilkContainerSettings} from "../../Settings/MilkContainerSettings";
-import {selectCurrentBeverage, selectCurrentStep} from "../../State/Machine/machine.selectors";
+import {selectCurrentStep} from "../../State/Machine/machine.selectors";
 import {combineLatest, Subscription} from "rxjs";
 
 @Component({

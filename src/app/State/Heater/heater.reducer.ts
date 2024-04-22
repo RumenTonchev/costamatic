@@ -1,5 +1,4 @@
 import {createReducer, on} from "@ngrx/store";
-import {HeaterInterface} from "../../Interfaces/heater-interface";
 import {heaterOff, heaterOn, isCold, isHot} from "./heater.actions";
 import {InitialHeater} from "../../Settings/InitialStates";
 
@@ -14,6 +13,7 @@ export const heaterReducer = createReducer(
   on(heaterOff, (state) => {
     return {
       ...state,
+      ofAt: new Date(),
       isHeating: false
     }
   }),

@@ -4,12 +4,10 @@ import {AppState} from "../../State/app.state";
 import {
   selectBeansQuantity,
   selectIsDispensingBeans,
-  selectPourCoffeeState
 } from "../../State/BeansContainer/beans-container.selectors";
 import {BeansContainerSettings} from "../../Settings/BeansContainerSettings";
 import {combineLatest, Subscription} from "rxjs";
-import {selectMilkContainerQuantity, selectPouringMilkState} from "../../State/MilkContainer/milk-container.selectors";
-import {selectCurrentStep, selectMachineState} from "../../State/Machine/machine.selectors";
+import {selectCurrentStep} from "../../State/Machine/machine.selectors";
 
 @Component({
   selector: 'app-beans-container',

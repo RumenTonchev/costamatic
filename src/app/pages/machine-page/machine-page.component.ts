@@ -2,11 +2,10 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {combineLatest, Subscription} from "rxjs";
 import {Store} from "@ngrx/store";
 import {AppState} from "../../State/app.state";
-import {selectMilkContainerQuantity, selectPouringMilkState} from "../../State/MilkContainer/milk-container.selectors";
+import {selectPouringMilkState} from "../../State/MilkContainer/milk-container.selectors";
 import {selectCurrentStep, selectMachineState} from "../../State/Machine/machine.selectors";
 import {MilkContainerSettings} from "../../Settings/MilkContainerSettings";
 import {
-  selectBeansQuantity,
   selectPourCoffeeState
 } from "../../State/BeansContainer/beans-container.selectors";
 import {BeansContainerSettings} from "../../Settings/BeansContainerSettings";
@@ -61,7 +60,7 @@ export class MachinePageComponent implements OnInit, OnDestroy {
           this.milkTime = 0;
           this.milkQuantity = 0;
         }
-        this.inUse = machineState === 'on'
+        this.inUse = machineState === 'on';
       })
     )
   }

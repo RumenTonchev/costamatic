@@ -3,7 +3,7 @@ import {HeaterSettings} from "../../Settings/HeaterSettings";
 import {Store} from "@ngrx/store";
 import {AppState} from "../../State/app.state";
 import {selectHeaterHot, selectHeaterOn} from "../../State/Heater/heater.selectors";
-import {Subscription, combineLatest} from "rxjs";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-heater',

@@ -4,10 +4,9 @@ import {Actions, createEffect, ofType} from "@ngrx/effects";
 import {Store} from "@ngrx/store";
 import {AppState} from "../app.state";
 import {heaterOff, heaterOn, isCold, isHot} from "./heater.actions";
-import {delay, delayWhen, from, interval, map, of, tap, withLatestFrom} from "rxjs";
-import {selectHeaterHot, selectHeaterOn} from "./heater.selectors";
+import {delayWhen, interval, map,withLatestFrom} from "rxjs";
+import {selectHeaterHot, selectOfAt} from "./heater.selectors";
 import {nextStep, turnOff} from "../Machine/machine.actions";
-import {selectMachineState} from "../Machine/machine.selectors";
 
 @Injectable()
 export class HeaterEffects {
@@ -35,12 +34,14 @@ export class HeaterEffects {
     delayWhen(() => {
       return interval(this.heaterSettings.coolingTime);
     }),
-    withLatestFrom(this.store.select(selectHeaterOn)),
+    withLatestFrom(this.store.select(selectOfAt)),
     map(([data, storeData]) => {
-      if (!storeData) {
+      const now = new Date()
+      const diff = now.getTime() - storeData.getTime();
+      if (diff >= this.heaterSettings.coolingTime) {
         this.store.dispatch(isCold());
       }
-    })
+    }),
   ), {dispatch: false})
 
   isCold$ = createEffect(() => this.actions$.pipe(

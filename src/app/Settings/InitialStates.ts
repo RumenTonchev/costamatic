@@ -82,7 +82,8 @@ export const InitialGrinder: GrinderInterface = {
 
 export const InitialHeater: HeaterInterface = {
   isHeating: false,
-  isHot: false
+  isHot: false,
+  ofAt: new Date(),
 };
 
 export const InitialMachine: MachineInterface = {
