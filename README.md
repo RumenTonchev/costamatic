@@ -2,7 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.5.
 
-[Live preview](https://66256da0b7c8a1f3055bbb25--costamatic.netlify.app/)
+[Live preview](https://costamatic.netlify.app/)
 
 ## Development server
 
